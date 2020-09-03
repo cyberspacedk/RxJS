@@ -11,7 +11,4 @@ function createSubscribe(name){
     }
   }
  }
-
-const {of, interval, timer, range, fromEvent} = rxjs;
-const {take, map, pluck} = rxjs.operators;
  
