@@ -1,12 +1,15 @@
 const {fromEvent} = rxjs;
 
+// get element
 const button = document.querySelector('button');
 
+// create stream
 const btn$ = fromEvent(button, 'click');
-btn$.subscribe((e)=>{
-  console.log(e)
-})
 
+// subscribe on stream
+btn$.subscribe((e)=> console.log(e))
+
+// Example fro Input element
 const input$ = fromEvent(input, 'keyup')
   .subscribe((e)=> console.log(e));
 
