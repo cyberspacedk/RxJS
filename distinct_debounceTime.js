@@ -26,5 +26,5 @@ fromEvent(input, 'keyup')
 
 // remove not unique value from array and pass to subscribe only unique value
 from([1, 55, 99, 35, 71, 1, 99, 39])
-    .pipe(distinct()) 
-    .subscribe(createSubscribe('distinct'))
+  .pipe(distinct()) 
+  .subscribe(createSubscribe('distinct'))
