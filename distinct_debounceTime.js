@@ -12,15 +12,9 @@ function createSubscribe(name){
   }
  }
 
-const {of, interval, timer, range, from, fromEvent} = rxjs;
-const {take, skip, map, debounceTime, distinct} = rxjs.operators;
-
-const cars = [
-  {name: 'audi', price: 500}, 
-  {name: 'bmw', price: 400}, 
-  {name: 'mercedes', price: 700}  
-];
-
+const {from, fromEvent} = rxjs;
+const {map, debounceTime, distinct} = rxjs.operators;
+ 
 // create stream from input event
 fromEvent(input, 'keyup')
   .pipe(
