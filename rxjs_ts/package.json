@@ -1,0 +1,24 @@
+{
+  "name": "rxjs_ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^4.4.1",
+    "rxjs": "^6.6.3",
+    "ts-loader": "^8.0.3",
+    "ts-node": "^9.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
