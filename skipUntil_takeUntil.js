@@ -1,6 +1,7 @@
 const {of, interval, timer} = rxjs;
 const {take, skip, skipWhile, takeUntil, skipUntil} = rxjs.operators;
 
+// ****** skipUntil
 // launch subscriber after 3s 
 interval(500)
   .pipe(
@@ -8,6 +9,7 @@ interval(500)
   ) // will return values after 3s
   .subscribe(createSubscribe('skipUntil'));
 
+// ****** takeIntil ****** 
 // takeUntil will grab tha values 5s and after will stop
 interval(500)
 .pipe(

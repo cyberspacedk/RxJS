@@ -1,5 +1,7 @@
 const {fromEvent} = rxjs;
 
+// ****** fromEvent ****** 
+
 // get element
 const button = document.querySelector('button');
 

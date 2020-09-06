@@ -1,5 +1,6 @@
 const {from} = rxjs;
 
+// ****** from ******
 // create stream from array
 // gets an array of data
 // array can be from elements of any type

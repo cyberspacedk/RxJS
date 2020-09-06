@@ -1,6 +1,7 @@
 const {from, fromEvent} = rxjs;
 const {map, debounceTime, distinct} = rxjs.operators;
- 
+
+// ****** debounceTime ******
 // create stream from input event
 fromEvent(input, 'keyup')
   .pipe(
@@ -10,6 +11,7 @@ fromEvent(input, 'keyup')
     )   
   .subscribe(createSubscribe('debounceTime'));
 
+// ****** distinct ****** 
 // remove not unique value from array and pass to subscribe only unique value
 from([1, 55, 99, 35, 71, 1, 99, 39])
   .pipe(distinct()) 

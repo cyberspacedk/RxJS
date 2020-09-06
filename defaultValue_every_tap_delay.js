@@ -1,7 +1,8 @@
 const {of, interval, timer, range, from, fromEvent} = rxjs;
 const { map, every, defaultIfEmpty, tap, delay } = rxjs.operators;
 
-// defaultIfEmpty set value if stream is empty
+// ****** defaultIfEmpty ******
+//  set value if stream is empty
 of()
   .pipe(
     defaultIfEmpty('I am empty default value')
@@ -15,7 +16,8 @@ from([1, 2, 3, 4, 5])
   )
   .subscribe(createSubscribe('every'))
 
-// tap gets value ans we can do some logic with this value.
+// ****** tap ******
+//  gets value ans we can do some logic with this value.
 // value inside tap does not transformed
 from([1, 2, 3, 4, 5])
   .pipe(
@@ -25,7 +27,8 @@ from([1, 2, 3, 4, 5])
   )
   .subscribe(createSubscribe('tap'))
 
-// delay stream execution on ms provided as arg in delay operator 
+// ****** delay ******
+// stream execution on ms provided as arg in delay operator 
 from([1, 2, 3, 4, 5])
   .pipe(
     delay(2000),

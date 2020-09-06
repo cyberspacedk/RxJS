@@ -1,8 +1,11 @@
 const {of, interval, timer, range, from, fromEvent} = rxjs;
 const {take, skip, map, skipWhile, takeUntil, skipUntil, filter} = rxjs.operators;
 
+// ****** filter ******
 range(0, 10)
- .pipe(filter(x => x % 2)) // return only odd values 1, 3, 5, 7, 9
+ .pipe(
+   filter(x => x % 2)
+  ) // return only odd values 1, 3, 5, 7, 9
  .subscribe(createSubscribe('filter'));
 
 
