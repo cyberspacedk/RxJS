@@ -1,22 +1,7 @@
 const {of, interval, timer, range} = rxjs;
 const {take} = rxjs.operators;
-console.log("➡️: rxjs.operators", rxjs.operators)
-
-function createSubscribe(name){
- return {
-   next(x){
-     console.log(name, '', x )
-   },
-   error(err){
-     console.log(name, ' error ', err )
-   },
-   complete(){
-     console.log(name, ' Completed')
-   }
- }
-}
-
-
+console.log("➡️: rxjs.operators", rxjs.operators) 
+ 
 //  Can create stream from any data (numbers, string, arrays )
 // every arguments will be passed to .next() and handle one by one
 of(5, 180, 'any data', ['one', 99]).subscribe(createSubscribe('of'));

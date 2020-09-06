@@ -17,18 +17,4 @@ from(arrayOfData).subscribe(createSubscribe('from'))
 const someFormData = [['name', 'John'], ['email', 'john@mail.com'], ['password', 12345]]
 const map = new Map(someFormData)
 // will be pass to next as array item ['name', 'John'] etc
-from(map).subscribe(createSubscribe('from'))
-
-function createSubscribe(name){
-  return {
-    next(x){
-      console.log(name, '', x )
-    },
-    error(err){
-      console.log(name, ' error ', err )
-    },
-    complete(){
-      console.log(name, ' Completed')
-    }
-  }
- }
+from(map).subscribe(createSubscribe('from')) 
