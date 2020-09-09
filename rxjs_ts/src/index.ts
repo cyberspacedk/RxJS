@@ -1,10 +1,4 @@
-import {Observable, interval} from 'rxjs';
- 
-const sequence$ = interval(1000);
+import {Observable, interval, fromEvent} from 'rxjs';
+import {map, take} from 'rxjs/operators';
 
-const sub1 = sequence$.subscribe(x=> console.log('Sub-1', x))
-const sub2 = sequence$.subscribe(x=> console.log('Sub-2', x))
-
-setTimeout(()=>{
-  sub1.unsubscribe()
-}, 5000)
+import './swipe'
