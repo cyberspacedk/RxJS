@@ -1,5 +1,6 @@
-import {Observable, interval, fromEvent} from 'rxjs';
-import {map, take} from 'rxjs/operators';
+import {Observable, interval, fromEvent, Subscriber} from 'rxjs';
+import {map, take, filter} from 'rxjs/operators'; 
 
-import './swipe';
-// import './slider';
+import {skipLimit} from './lift/skipLimit';
+
+interval(1000).pipe(skipLimit(3, 4)).subscribe(console.log)
