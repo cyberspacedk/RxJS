@@ -1,5 +1,5 @@
-import { fromEvent, Observable, zip, from, merge } from "rxjs";
-import { map } from "rxjs/operators";
+import { fromEvent, Observable, zip, from, merge, iif, of } from "rxjs";
+import { map, switchMap, pluck } from "rxjs/operators";
 
 // create two streams 
 // click or touch start
@@ -20,12 +20,21 @@ swipe(dimensions$).subscribe(direction => {
 function getClientX(sourceMobile$: Observable<TouchEvent>, sourceDesktop$: Observable<MouseEvent>){
   return merge(sourceMobile$, sourceDesktop$)    
           .pipe( 
-            map((event: TouchEvent | MouseEvent) => {
-              if(event instanceof TouchEvent){
-                return event.changedTouches[0].clientX;
-              }
-              return event.clientX
-            })
+            // Variant with switchMap - lets us switch on another stream
+            switchMap((event: TouchEvent | MouseEvent)=>{
+              return iif(
+                ()=> event instanceof TouchEvent,
+                of(event as TouchEvent).pipe(pluck('changeTouches', '0', 'clientX')),
+                of(event as MouseEvent).pipe(pluck('clientX'))                
+                )
+            }),
+            // Variant with map
+            // map((event: TouchEvent | MouseEvent) => {
+            //   if(event instanceof TouchEvent){
+            //     return event.changedTouches[0].clientX;
+            //   }
+            //   return event.clientX
+            // })
           )
 }
 
