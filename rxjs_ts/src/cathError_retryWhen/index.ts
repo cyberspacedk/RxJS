@@ -12,11 +12,10 @@ const sequence2$ = of('A','B', 78, 'C', 'D', 55, 'E');
 // will end stream when streams don't generate events anymore
 const combinedSequences$ = zip(sequence1$, sequence2$); // we will get [0, 'A'], [1, 'B'], [2, 'C']
 
-// lets generate error
+// !Lets generate error
 
 // cathError will cath an Error and handle it
 // we need return from catchError some stream or EMPTY 
-
 combinedSequences$
   .pipe(
     map(([x, y]: [number, number | string]) => (y as any).toUpperCase()), // stream will be [0, 'A'], we try call toUpperCase for number to invoke Error
@@ -29,14 +28,14 @@ combinedSequences$
     }),
     tap((value)=> console.log('TAP: AFTER CATCH', value)), 
   )
-  // .subscribe(
-  //   (data) => console.log('SUBSCRIBE: DATA _____', data), 
-  //   (err) => console.log('SUBSCRIBE: ERROR ', err), 
-  //   () => console.log('SUBSCRIBE: COMPLETED')
-  // );
+  .subscribe(
+    (data) => console.log('SUBSCRIBE: DATA _____', data), 
+    (err) => console.log('SUBSCRIBE: ERROR ', err), 
+    () => console.log('SUBSCRIBE: COMPLETED')
+  );
 
 
-// HOW TO SAVE EXTERNAL STREAM IF CURRENT INVOKE ERROR
+// !HOW TO SAVE EXTERNAL STREAM IF CURRENT INVOKE ERROR
 combinedSequences$
   .pipe( 
     switchMap(([x, y]: [number, number | string]) =>{
